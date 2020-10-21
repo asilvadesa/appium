@@ -73,7 +73,7 @@ npm install -g appium
 npm install wd
 ```
 
-### 7. Inciar o Appium
+### 7. Iniciar o Appium
 ```
 $ appium
 ```
@@ -106,5 +106,8 @@ source ~.bashrc
 $ appium-doctor
 ```
 
+
 ![alt text](https://github.com/asilvadesa/appium-test/blob/main/src/main/resources/imagens/appium-doctor-success.png)
 
+- Agora sim tudo certo ;)
+ 
