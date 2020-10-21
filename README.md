@@ -5,7 +5,15 @@
 -  Appium utilizada uma arquitetura Cliente-Servidor
 - Os scripts de testes podem ser escritos em diferentes linguagens
 - Lista de bibliotecas de cliente com suporte para servidor Appium
-
-http://appium.io/docs/en/about-appium/appium-clients
+  - Ruby
+  - Python
+  - Java
+  - JavaScript
+  - Objective C
+  - PHP
+  - C#
+  - RobotFramework
+  
+ - [Para mais informações acesse a documentação](http://appium.io/docs/en/about-appium/intro/)
 
 ![alt text](https://thinkpalm.com/wp-content/uploads/2017/11/Appium-Architecture.jpg)
