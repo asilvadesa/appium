@@ -17,7 +17,7 @@ public class App
 {
     public static void main( String[] args ) throws MalformedURLException {
 
-        File apk = new File("/home/anderson/IdeaProjects/appium-test/src/main/resources/alura_esporte.apk");
+        File apk = new File("/home/anderson/IdeaProjects/appium-test/src/main/resources/apk/alura_esporte.apk");
         DesiredCapabilities configuracoes =  new DesiredCapabilities();
         configuracoes.setCapability(MobileCapabilityType.APP, apk.getAbsolutePath());
         configuracoes.setCapability(MobileCapabilityType.PLATFORM_NAME, MobilePlatform.ANDROID);
