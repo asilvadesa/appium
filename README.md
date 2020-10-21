@@ -1,6 +1,7 @@
 
-# Appium Project Test
+# Appium
 Implementando testes de interface do usuário utilizando Appium. 
 
 
-https://thinkpalm.com/wp-content/uploads/2017/11/Appium-Architecture.jpg
+## Arquitetura Appium
+![alt text](https://thinkpalm.com/wp-content/uploads/2017/11/Appium-Architecture.jpg)
