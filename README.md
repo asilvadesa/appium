@@ -94,12 +94,17 @@ $ appium-doctor
 ### 9. Configurando ANDROID_HOME e JAVA_HOME
 ```
 vim ~/.bashrc
+source ~.bashrc
 
 ```
 ![alt text](https://github.com/asilvadesa/appium-test/blob/main/src/main/resources/imagens/variaveis-ambiente.png)
 
 - Veja como ficou meu arquivo .bashrc ao final de todas as modicações
 - Executa novamente após as alterações e o resultado final sera conforme a imagem a seguir.
+
+```
+$ appium-doctor
+```
 
 ![alt text](https://github.com/asilvadesa/appium-test/blob/main/src/main/resources/imagens/appium-doctor-success.png)
 
