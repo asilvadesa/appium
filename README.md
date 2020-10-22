@@ -73,16 +73,13 @@ npm install -g appium
 npm install wd
 ```
 
-### 7. Inciar o Appium
+### 7. Iniciar o Appium
 ```
 $ appium
 ```
+![alt text](https://github.com/asilvadesa/appium-test/blob/main/src/main/resources/imagens/start-appium.png)
 
-- Se tudo estiver correto você vera essa mensagem no terminal, porem apesar do servidor está rodando é preciso verificar as dependencias que ele precisa para que uma cliente consiga fazer a comunição, para isso vamos instalar uma ferramenta que nos auxilia para fazer essa checkagem.
-
-<Adicionar a imagem do terminal>
-[Appium] Welcome to Appium v1.18.3
-[Appium] Appium REST http interface listener started on 0.0.0.0:4723
+- Se tudo estiver correto você vera essa mensagem no terminal, porem apesar do servidor está rodando é preciso verificar as dependencias que ele precisa para que o cliente consiga fazer a comunição, para isso vamos instalar uma ferramenta que nos auxilia para fazer essa checkagem.
 
 
 ### 8. Instalar Appium doctor
@@ -90,5 +87,27 @@ $ appium
 npm install appium-doctor -g
 $ appium-doctor
 ```
+![alt text](https://github.com/asilvadesa/appium-test/blob/main/src/main/resources/imagens/appium-doctor.png)
+
+- Veja as dependencias que ainda faltavam e para isso basta adicionar as variaveis de ambiente no arquivo .bashrc
+
+### 9. Configurando ANDROID_HOME e JAVA_HOME
+```
+vim ~/.bashrc
+source ~.bashrc
+
+```
+![alt text](https://github.com/asilvadesa/appium-test/blob/main/src/main/resources/imagens/variaveis-ambiente.png)
+
+- Veja como ficou meu arquivo .bashrc ao final de todas as modicações
+- Executa novamente após as alterações e o resultado final sera conforme a imagem a seguir.
+
+```
+$ appium-doctor
+```
 
 
+![alt text](https://github.com/asilvadesa/appium-test/blob/main/src/main/resources/imagens/appium-doctor-success.png)
+
+- Agora sim tudo certo ;)
+ 
