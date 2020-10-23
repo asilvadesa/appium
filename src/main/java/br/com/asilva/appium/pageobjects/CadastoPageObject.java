@@ -14,9 +14,10 @@ public class CadastoPageObject {
 
     public CadastoPageObject(AppiumDriver driver) {
         this.driver = driver;
+        buscaElementos();
     }
 
-    public void buscaElementos(){
+    private void buscaElementos(){
 
         campoNome = (MobileElement) driver.findElementById("br.com.alura.aluraesporte:id/input_nome");
         campoSeha = (MobileElement) driver.findElementById("br.com.alura.aluraesporte:id/input_senha");
@@ -32,9 +33,10 @@ public class CadastoPageObject {
         campoConfirmaSenha.sendKeys(confirmaSenha);
     }
 
-    public void cadastrar(String nome, String senha, String confirmaSenha){
+    public LoginPageObject cadastrar(String nome, String senha, String confirmaSenha){
         preencheFormulario(nome, senha, confirmaSenha);
         botaoCadastro.click();
+        return new LoginPageObject(driver);
     }
 
     public String mensagemDeErro() {
