@@ -7,6 +7,9 @@ import org.openqa.selenium.NoSuchElementException;
 public class LoginPageObject extends PageObjectBase{
 
     private MobileElement botaoCadastroDeNovosUsuarios;
+    private MobileElement campoIdUsuario;
+    private MobileElement campoSenha;
+    private MobileElement botaoLogar;
 
     public LoginPageObject(AppiumDriver driver) {
         super(driver);
@@ -15,6 +18,9 @@ public class LoginPageObject extends PageObjectBase{
 
     @Override
     public void buscaElementos() throws NoSuchElementException {
+        campoIdUsuario = (MobileElement) driver.findElementById("br.com.alura.aluraesporte:id/input_usuario");
+        campoSenha = (MobileElement) driver.findElementById("br.com.alura.aluraesporte:id/input_senha");
+        botaoLogar = (MobileElement) driver.findElementById("br.com.alura.aluraesporte:id/login_botao_logar");
         try{
             botaoCadastroDeNovosUsuarios = (MobileElement) driver.findElementById("br.com.alura.aluraesporte:id/login_botao_cadastrar_usuario");
         }catch (NoSuchElementException e){
@@ -27,4 +33,17 @@ public class LoginPageObject extends PageObjectBase{
     }
 
 
+    public void logar(String usuario, String senha) {
+        preencheFormulario(usuario, senha);
+        botaoLogar.click();
+    }
+
+    private void preencheFormulario(String usuario, String senha) {
+        campoIdUsuario.sendKeys(usuario);
+        campoSenha.sendKeys(senha);
+    }
+
+    public String mensagemErro() {
+        return driver.findElementById("br.com.alura.aluraesporte:id/mensagem_erro_login").getText();
+    }
 }
