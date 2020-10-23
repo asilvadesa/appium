@@ -2,10 +2,13 @@ package br.com.asilva.appium.pageobjects;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class CadastoPageObject {
+public class CadastoPageObject extends PageObjectBase{
 
-    AppiumDriver driver;
     private MobileElement campoNome;
     private MobileElement campoSeha;
     private MobileElement campoConfirmaSenha;
@@ -13,11 +16,12 @@ public class CadastoPageObject {
     private MobileElement mensagemErro;
 
     public CadastoPageObject(AppiumDriver driver) {
-        this.driver = driver;
+        super(driver);
         buscaElementos();
     }
 
-    private void buscaElementos(){
+    @Override
+    public void buscaElementos(){
 
         campoNome = (MobileElement) driver.findElementById("br.com.alura.aluraesporte:id/input_nome");
         campoSeha = (MobileElement) driver.findElementById("br.com.alura.aluraesporte:id/input_senha");
@@ -40,7 +44,10 @@ public class CadastoPageObject {
     }
 
     public String mensagemDeErro() {
-        mensagemErro = (MobileElement) driver.findElementById("br.com.alura.aluraesporte:id/erro_cadastro");
+        String erroID = "br.com.alura.aluraesporte:id/erro_cadastro";
+        WebDriverWait espera = new WebDriverWait(driver, 10);
+        espera.until(ExpectedConditions.presenceOfElementLocated(By.id(erroID)));
+        mensagemErro = (MobileElement) driver.findElementById(erroID);
         return mensagemErro.getText();
     }
 }

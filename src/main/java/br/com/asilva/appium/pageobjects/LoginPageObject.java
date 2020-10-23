@@ -2,19 +2,23 @@ package br.com.asilva.appium.pageobjects;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import org.openqa.selenium.NoSuchElementException;
 
-public class LoginPageObject {
+public class LoginPageObject extends PageObjectBase{
 
-    AppiumDriver driver;
     private MobileElement botaoCadastroDeNovosUsuarios;
 
     public LoginPageObject(AppiumDriver driver) {
-        this.driver = driver;
+        super(driver);
         buscaElementos();
     }
 
-    private void buscaElementos(){
-        botaoCadastroDeNovosUsuarios = (MobileElement) driver.findElementById("br.com.alura.aluraesporte:id/login_botao_cadastrar_usuario");
+    @Override
+    public void buscaElementos() throws NoSuchElementException {
+        try{
+            botaoCadastroDeNovosUsuarios = (MobileElement) driver.findElementById("br.com.alura.aluraesporte:id/login_botao_cadastrar_usuario");
+        }catch (NoSuchElementException e){
+        }
     }
 
     public CadastoPageObject irParaTeladeCadastro(){
