@@ -1,10 +1,12 @@
 package br.com.asilva.appium;
 
+import br.com.asilva.appium.pageobjects.CadastoPageObject;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 import java.net.MalformedURLException;
 
@@ -14,27 +16,27 @@ public class CadastroTest
     @Test
     public void naoDeve_CadastrarUsuarioComSenhaDiferente() throws MalformedURLException {
         AppiumDriver driver = AppiumDriverConfig.Instance().driver;
-        driver.findElement(By.id("br.com.alura.aluraesporte:id/login_botao_cadastrar_usuario")).click();
-        driver.findElement(By.id("br.com.alura.aluraesporte:id/input_nome")).sendKeys("asilvadesa");
-        driver.findElement(By.id("br.com.alura.aluraesporte:id/input_senha")).sendKeys("123");
-        driver.findElement(By.id("br.com.alura.aluraesporte:id/input_confirmar_senha")).sendKeys("456");
-        driver.findElement(By.id("br.com.alura.aluraesporte:id/cadastro_usuario_botao_cadastrar")).click();
-        String text = driver.findElement(By.id("br.com.alura.aluraesporte:id/erro_cadastro")).getText();
-        Assert.assertNotNull(text);
+        driver.findElementById("br.com.alura.aluraesporte:id/login_botao_cadastrar_usuario").click();
+
+        CadastoPageObject telaCadastro = new CadastoPageObject(driver);
+        telaCadastro.buscaElementos();
+        telaCadastro.cadastrar("Anderson", "123", "456");
+        Assert.assertEquals("Senhas não conferem", telaCadastro.mensagemDeErro());
+
     }
 
     @Test
-    public void deve_CadastrarUsuariosComSenhaQueConferem() throws MalformedURLException {
+    public void deve_CadastrarUsuarioComSenhaQueConferem() throws MalformedURLException {
         AppiumDriver driver = AppiumDriverConfig.Instance().driver;
-        MobileElement botaoCadastro = (MobileElement) driver.findElement(By.id("br.com.alura.aluraesporte:id/login_botao_cadastrar_usuario"));
-        botaoCadastro.click();
-        driver.findElement(By.id("br.com.alura.aluraesporte:id/input_nome")).sendKeys("asilvadesa");
-        driver.findElement(By.id("br.com.alura.aluraesporte:id/input_senha")).sendKeys("123");
-        driver.findElement(By.id("br.com.alura.aluraesporte:id/input_confirmar_senha")).sendKeys("123");
-        driver.findElement(By.id("br.com.alura.aluraesporte:id/cadastro_usuario_botao_cadastrar")).click();
+        driver.findElementById("br.com.alura.aluraesporte:id/login_botao_cadastrar_usuario").click();
 
-        MobileElement botaoLogar = (MobileElement) driver.findElement(By.id("br.com.alura.aluraesporte:id/login_botao_logar"));
-        Assert.assertNotNull(botaoLogar);
+        CadastoPageObject telaCadastro = new CadastoPageObject(driver);
+        telaCadastro.buscaElementos();
+        telaCadastro.cadastrar("Anderson", "123", "123");
+
+
+        MobileElement botaoLogin = (MobileElement) driver.findElementById("br.com.alura.aluraesporte:id/login_botao_logar");
+        Assert.assertNotNull(botaoLogin);
     }
 
 }
