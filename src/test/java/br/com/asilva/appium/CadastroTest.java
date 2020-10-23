@@ -6,7 +6,6 @@ import io.appium.java_client.AppiumDriver;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.NoSuchElementException;
 
 import java.net.MalformedURLException;
 
